@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>testspec Proiect235 - atar2453_BBT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width= height= src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect235<br/>Test Suite: Proiect235 - atar2453_BBT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 02/04/2025</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.atar2453_BBT</a></b></p>
+<p style="padding-left: 45px;"><a href="#toc_tc24918">Prj235-48: TC1-ECP</a></p><p style="padding-left: 45px;"><a href="#toc_tc24920">Prj235-49: TC2-ECP</a></p><p style="padding-left: 45px;"><a href="#toc_tc24922">Prj235-50: TC3-ECP</a></p><p style="padding-left: 45px;"><a href="#toc_tc24924">Prj235-51: TC1-BVA</a></p><p style="padding-left: 45px;"><a href="#toc_tc24926">Prj235-52: TC2-BVA</a></p><p style="padding-left: 45px;"><a href="#toc_tc24928">Prj235-53: TC3_BVA</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>Proiect de testare pentru studentii din grupa 235.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1.Test Suite : atar2453_BBT</h1>
+<div><p>Se testeaza adaugarea unei parti componente din Inventory</p>
+</div><a name="toc_tc24918"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-48: TC1-ECP&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>adaugare valida TC1_ECP</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC1_ECP</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24920"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-49: TC2-ECP&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>min &lt; inStock &lt; max</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC2_ECP</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24922"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-50: TC3-ECP&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>name cannot be empty</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC3_ECP</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24924"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-51: TC1-BVA&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>TC1_BVA adaugare valida</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC1_BVA</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24926"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-52: TC2-BVA&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>TC2_BVA&nbsp;min &lt; inStock &lt; max</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC2_BVA</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24928"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj235-53: TC3_BVA&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">brar2458</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue)</p>
+
+<p>TC3_BVA adaugare valida (produsul e in stoc)</p>
+
+<p>&nbsp;</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>part: Part</p>
+
+<p>part.name.length &gt; 0;</p>
+
+<p>part.price &gt; 0;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >InventoryServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >testAddInhousePartTC3_BVA</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">atar2453_F01:  Adaugare_Piesa [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+
+</body>
+</html>
