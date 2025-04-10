@@ -41,16 +41,37 @@ public class Inventory {
      * @return 
      */
     public Product lookupProduct(String searchItem) {
+
+        if (searchItem == null) {
+            throw new RuntimeException("Couldn't find the product!");
+        }
+
         boolean isFound = false;
+        boolean isIdMatch = false;
+        Product found = null;
+
+        products = getProducts();
+
         for(Product p: products) {
-            if(p.getName().contains(searchItem) || (p.getProductId()+"").equals(searchItem)) return p;
-            isFound = true;
+            if(p.getName().contains(searchItem)) {
+                if(p.getInStock() > 0){
+                    found = p;
+                    isFound = true;
+                    break;
+                }
+            }
+            if(String.valueOf(p.getProductId()).equals(searchItem)) {
+                isIdMatch = true;
+                found = p;
+            }
         }
-        if(isFound == false) {
-            Product product = new Product(0, null, 0.0, 0, 0, 0, null);
-            return product;
+
+        if(!isFound && !isIdMatch) {
+            return new Product(0,null, 0.0, 0,0, 0, null);
+        }else if(isFound && found.getInStock() <=0){
+            return new Product(found.getProductId(), found.getName(), 0.0, 0, 0,0, found.getAssociatedParts());
         }
-        return null;
+        return found;
     }
     
     /**
