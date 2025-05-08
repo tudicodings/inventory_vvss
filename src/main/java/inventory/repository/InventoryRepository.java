@@ -17,6 +17,14 @@ public class InventoryRepository {
 		readProducts();
 	}
 
+	private static InventoryRepository repositoryInstance;
+	public static InventoryRepository getInstance() {
+		if (repositoryInstance == null) {
+			repositoryInstance = new InventoryRepository();
+		}
+		return repositoryInstance;
+	}
+
 	public void readParts(){
 		//ClassLoader classLoader = InventoryRepository.class.getClassLoader();
 		File file = new File(filename);

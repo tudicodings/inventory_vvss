@@ -68,8 +68,6 @@ public class Inventory {
 
         if(!isFound && !isIdMatch) {
             return new Product(0,null, 0.0, 0,0, 0, null);
-        }else if(isFound && found.getInStock() <=0){
-            return new Product(found.getProductId(), found.getName(), 0.0, 0, 0,0, found.getAssociatedParts());
         }
         return found;
     }
@@ -121,6 +119,14 @@ public class Inventory {
             if(p.getName().contains(searchItem) || (p.getPartId()+"").equals(searchItem)) return p;
         }
         return null;
+    }
+
+    /**
+     * Getter for parts Observable List
+     * @return
+     */
+    public ObservableList<Part> getParts() {
+        return allParts;
     }
     
     /**
