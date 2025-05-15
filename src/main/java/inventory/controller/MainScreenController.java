@@ -22,20 +22,20 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainScreenController implements Initializable,Controller {
-    
-     // Declare fields
+
+    // Declare fields
     private Stage stage;
     private Parent scene;
     private static Part modifyPart;
     private static Product modifyProduct;
     private static int modifyPartIndex;
     private static int modifyProductIndex;
-    
+
     // Declare methods
     public static int getModifyPartIndex() {
         return modifyPartIndex;
     }
-    
+
     public static int getModifyProductIndex() {
         return modifyProductIndex;
     }
@@ -72,10 +72,10 @@ public class MainScreenController implements Initializable,Controller {
 
     @FXML
     private TableColumn<Product, Double> productsPriceCol;
-    
+
     @FXML
     private TextField partsSearchTxt;
-    
+
     @FXML
     private TextField productsSearchTxt;
 
@@ -125,7 +125,7 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Ask user for confirmation before deleting selected part from list of parts.
-     * @param event 
+     * @param event
      */
     @FXML
     void handleDeletePart(ActionEvent event) {
@@ -148,19 +148,19 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Ask user for confirmation before deleting selected product from list of products.
-     * @param event 
+     * @param event
      */
     @FXML
     void handleDeleteProduct(ActionEvent event) {
         Product product = productsTableView.getSelectionModel().getSelectedItem();
-        
+
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initModality(Modality.NONE);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Confirm Product Deletion?");
         alert.setContentText("Are you sure you want to delete product " + product.getName() + " from products?");
         Optional<ButtonType> result = alert.showAndWait();
-        
+
         if (result.get() == ButtonType.OK) {
             service.deleteProduct(product);
             System.out.println("Product " + product.getName() + " was removed.");
@@ -199,7 +199,7 @@ public class MainScreenController implements Initializable,Controller {
     void handleModifyPart(ActionEvent event) throws IOException {
         modifyPart = partsTableView.getSelectionModel().getSelectedItem();
         modifyPartIndex = service.getAllParts().indexOf(modifyPart);
-        
+
         displayScene(event, "/fxml/ModifyPart.fxml");
     }
 
@@ -212,13 +212,13 @@ public class MainScreenController implements Initializable,Controller {
     void handleModifyProduct(ActionEvent event) throws IOException {
         modifyProduct = productsTableView.getSelectionModel().getSelectedItem();
         modifyProductIndex = service.getAllProducts().indexOf(modifyProduct);
-        
+
         displayScene(event, "/fxml/ModifyProduct.fxml");
     }
 
     /**
      * Ask user for confirmation before exiting
-     * @param event 
+     * @param event
      */
     @FXML
     void handleExit(ActionEvent event) {
@@ -238,7 +238,7 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Gets search text and inputs into lookupPart method to highlight desired part
-     * @param event 
+     * @param event
      */
     @FXML
     void handlePartsSearchBtn(ActionEvent event) {
@@ -248,7 +248,7 @@ public class MainScreenController implements Initializable,Controller {
 
     /**
      * Gets search text and inputs into lookupProduct method to highlight desired product
-     * @param event 
+     * @param event
      */
     @FXML
     void handleProductsSearchBtn(ActionEvent event) {

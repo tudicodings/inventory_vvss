@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import static inventory.controller.MainScreenController.getModifyProductIndex;
 
 public class ModifyProductController implements Initializable, Controller {
-    
+
     // Declare fields
     private Stage stage;
     private Parent scene;
@@ -143,13 +143,13 @@ public class ModifyProductController implements Initializable, Controller {
         stage.setScene(new Scene(scene));
         stage.show();
     }
-    
+
     /**
      * Method to add values of addParts to the bottom table view of the scene.
      */
     public void updateDeleteProductTableView() {
         deleteProductTableView.setItems(addParts);
-        
+
         deleteProductIdCol.setCellValueFactory(new PropertyValueFactory<>("partId"));
         deleteProductNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         deleteProductInventoryCol.setCellValueFactory(new PropertyValueFactory<>("inStock"));
@@ -158,7 +158,7 @@ public class ModifyProductController implements Initializable, Controller {
 
     /**
      * Ask user for confirmation before deleting selected part from current product.
-     * @param event 
+     * @param event
      */
     @FXML
     void handleDeleteProduct(ActionEvent event) {
@@ -178,17 +178,17 @@ public class ModifyProductController implements Initializable, Controller {
             System.out.println("Canceled part deletion.");
         }
     }
-    
+
     /**
      * Add selected part from top table view to bottom table view in order to create
      * new product
-     * @param event 
+     * @param event
      */
     @FXML
     void handleAddProduct(ActionEvent event) {
         Part part = addProductTableView.getSelectionModel().getSelectedItem();
         addParts.add(part);
-        updateDeleteProductTableView();   
+        updateDeleteProductTableView();
     }
 
     /**
@@ -227,7 +227,7 @@ public class ModifyProductController implements Initializable, Controller {
         String min = minTxt.getText();
         String max = maxTxt.getText();
         errorMessage = "";
-        
+
         try {
             errorMessage = Product.isValidProduct(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), addParts, errorMessage);
             if(errorMessage.length() > 0) {
@@ -252,7 +252,7 @@ public class ModifyProductController implements Initializable, Controller {
 
     /**
      * Gets search text and inputs into lookupAssociatedPart method to highlight desired part
-     * @param event 
+     * @param event
      */
     @FXML
     void handleSearchProduct(ActionEvent event) {

@@ -9,21 +9,25 @@ import java.util.StringTokenizer;
 
 public class InventoryRepository {
 
-	private static String filename = "data/example.txt";
+	private static String filename = "G:\\FACULTATE\\intern\\inventory_vvss\\data\\items.txt";
 	private Inventory inventory;
-	public InventoryRepository(){
+	private static InventoryRepository repositoryInstance;
+	public InventoryRepository() {
 		this.inventory=new Inventory();
 		readParts();
 		readProducts();
 	}
-
-	private static InventoryRepository repositoryInstance;
 	public static InventoryRepository getInstance() {
 		if (repositoryInstance == null) {
 			repositoryInstance = new InventoryRepository();
 		}
 		return repositoryInstance;
 	}
+	//public InventoryRepository(){
+	//	this.inventory=new Inventory();
+	//	readParts();
+	//	readProducts();
+	//}
 
 	public void readParts(){
 		//ClassLoader classLoader = InventoryRepository.class.getClassLoader();
@@ -44,7 +48,7 @@ public class InventoryRepository {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		inventory.setAllParts(listP);
+		inventory.setParts(listP);
 	}
 
 	private Part getPartFromString(String line){
@@ -52,7 +56,7 @@ public class InventoryRepository {
 		if (line==null|| line.equals("")) return null;
 		StringTokenizer st=new StringTokenizer(line, ",");
 		String type=st.nextToken();
-		if (type.equals("I")) {
+		if ("I".equals(type)) {
 			int id= Integer.parseInt(st.nextToken());
 			inventory.setAutoPartId(id);
 			String name= st.nextToken();
@@ -82,16 +86,14 @@ public class InventoryRepository {
 		File file = new File(filename);
 
 		ObservableList<Product> listP = FXCollections.observableArrayList();
-		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(file));
-			String line = null;
-			while((line=br.readLine())!=null){
-				Product product=getProductFromString(line);
-				if (product!=null)
+		//BufferedReader br = null;
+		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+			String line;
+			while((line=br.readLine())!=null) {
+				Product product = getProductFromString(line);
+				if (product != null)
 					listP.add(product);
 			}
-			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -135,7 +137,7 @@ public class InventoryRepository {
 		File file = new File(filename);
 
 		BufferedWriter bw = null;
-		ObservableList<Part> parts=inventory.getAllParts();
+		ObservableList<Part> parts=inventory.getParts();
 		ObservableList<Product> products=inventory.getProducts();
 
 		try {
@@ -150,12 +152,22 @@ public class InventoryRepository {
 				String line=pr.toString()+",";
 				ObservableList<Part> list= pr.getAssociatedParts();
 				int index=0;
-				while(index<list.size()-1){
-					line=line+list.get(index).getPartId()+":";
-					index++;
+				//while(index<list.size()-1){
+				//	line=line+list.get(index).getPartId()+":";
+				//	index++;
+				//}
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < list.size(); i++) {
+					builder.append(list.get(i).getPartId());
+					if (i < list.size() - 1) {
+						builder.append(":");
+					}
 				}
-				if (index==list.size()-1)
-					line=line+list.get(index).getPartId();
+				if (index==list.size()-1) {
+					line += builder.toString();
+				} else {
+					line+=builder.toString();
+				}
 				bw.write(line);
 				bw.newLine();
 			}
@@ -184,7 +196,7 @@ public class InventoryRepository {
 	}
 
 	public ObservableList<Part> getAllParts(){
-		return inventory.getAllParts();
+		return inventory.getParts();
 	}
 
 	public ObservableList<Product> getAllProducts(){

@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 import static inventory.controller.MainScreenController.getModifyPartIndex;
 
 public class ModifyPartController implements Initializable, Controller {
-    
+
     // Declare field
     private Stage stage;
     private Parent scene;
@@ -33,16 +33,16 @@ public class ModifyPartController implements Initializable, Controller {
     private int partId;
 
     private InventoryService service;
-    
+
     @FXML
     private RadioButton inhouseRBtn;
 
     @FXML
     private RadioButton outsourcedRBtn;
-    
+
     @FXML
     private Label modifyPartDynamicLbl;
-    
+
     @FXML
     private TextField modifyPartDynamicTxt;
 
@@ -121,22 +121,22 @@ public class ModifyPartController implements Initializable, Controller {
         stage.setScene(new Scene(scene));
         stage.show();
     }
-    
+
     /**
      * If in-house radio button is selected set isOutsourced boolean
      * to false and modify dynamic label to Machine ID
-     * @param event 
+     * @param event
      */
     @FXML
     void handleInhouseRBtn(ActionEvent event) {
         isOutsourced = false;
         modifyPartDynamicLbl.setText("Machine ID");
     }
-    
+
     /**
      * If outsourced radio button is selected set isOutsourced boolean
      * to true and modify dynamic label to Company Name
-     * @param event 
+     * @param event
      */
     @FXML
     void handleOutsourcedRBtn(ActionEvent event) {
@@ -182,7 +182,7 @@ public class ModifyPartController implements Initializable, Controller {
         String max = maxTxt.getText();
         String partDynamicValue = modifyPartDynamicTxt.getText();
         errorMessage = "";
-        
+
         try {
             errorMessage = Part.isValidPart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), errorMessage);
             if(errorMessage.length() > 0) {

@@ -4,10 +4,10 @@ module inventory {
     requires javafx.controls;
     requires org.controlsfx.controls;
 
-    opens inventory.model to javafx.base;
-    exports inventory.model;
-    opens inventory to javafx.fxml;
+    opens inventory to javafx.base;
     exports inventory;
     opens inventory.controller to javafx.fxml;
     exports inventory.controller;
+    exports inventory.model;
+    opens inventory.model to javafx.base, javafx.fxml;
 }

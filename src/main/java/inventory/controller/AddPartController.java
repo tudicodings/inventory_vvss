@@ -2,6 +2,7 @@ package inventory.controller;
 
 import inventory.model.Part;
 import inventory.service.InventoryService;
+import inventory.validator.ValidatorException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,13 +28,13 @@ public class AddPartController implements Initializable, Controller {
     private int partId;
 
     private InventoryService service;
-    
+
     @FXML
     private RadioButton inhouseRBtn;
 
     @FXML
     private RadioButton outsourcedRBtn;
-    
+
     @FXML
     private Label addPartDynamicLbl;
 
@@ -48,7 +49,7 @@ public class AddPartController implements Initializable, Controller {
 
     @FXML
     private TextField priceTxt;
-    
+
     @FXML
     private TextField addPartDynamicTxt;
 
@@ -116,7 +117,7 @@ public class AddPartController implements Initializable, Controller {
     /**
      * If in-house radio button is selected set isOutsourced boolean
      * to false and modify dynamic label to Machine ID
-     * @param event 
+     * @param event
      */
     @FXML
     void handleInhouseRBtn(ActionEvent event) {
@@ -127,7 +128,7 @@ public class AddPartController implements Initializable, Controller {
     /**
      * If outsourced radio button is selected set isOutsourced boolean
      * to true and modify dynamic label to Company Name
-     * @param event 
+     * @param event
      */
     @FXML
     void handleOutsourcedRBtn(ActionEvent event) {
@@ -150,7 +151,7 @@ public class AddPartController implements Initializable, Controller {
         String max = maxTxt.getText();
         String partDynamicValue = addPartDynamicTxt.getText();
         errorMessage = "";
-        
+
         try {
             errorMessage = Part.isValidPart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), errorMessage);
             if(errorMessage.length() > 0) {
@@ -160,14 +161,14 @@ public class AddPartController implements Initializable, Controller {
                 alert.setContentText(errorMessage);
                 alert.showAndWait();
             } else {
-               if(isOutsourced == true) {
+                if(isOutsourced == true) {
                     service.addOutsourcePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), partDynamicValue);
                 } else {
                     service.addInhousePart(name, Double.parseDouble(price), Integer.parseInt(inStock), Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(partDynamicValue));
                 }
                 displayScene(event, "/fxml/MainScreen.fxml");
             }
-            
+
         } catch (NumberFormatException e) {
             System.out.println("Form contains blank field.");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -175,6 +176,8 @@ public class AddPartController implements Initializable, Controller {
             alert.setHeaderText("Error!");
             alert.setContentText("Form contains blank field.");
             alert.showAndWait();
+        } catch (ValidatorException e) {
+            throw new RuntimeException(e);
         }
     }
 
